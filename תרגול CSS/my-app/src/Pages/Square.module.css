@@ -1,0 +1,77 @@
+*{
+    /* כוכבית אומרת להכל  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #e9e3e3;
+    font-family:"Lato", sans-serif ;
+    line-height: 16px;
+    font-weight: 400;
+    font-size: 160px;
+    line-height: 1.7;
+    color: #f50000;
+    padding: 30px;
+}
+ 
+.Square {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    margin-top: 20%;
+    padding-right: 8px;
+    color: rgb(0, 255, 136);
+    border: 10px solid black;
+    /* 0 - היסט אופקי (ימינה/שמאלה) */
+    /* 4px - היסט אנכי (למעלה/למטה) */
+    /* 12px - טשטוש/רמת עמעום הצל */
+    /* 0 - ריווח הצל (גודל ההתפשטות) */
+    /* green - צבע הצל */
+    box-shadow: 0 4px 12px 0 green;
+    font-size: 24px;
+    animation-name: moveinLeft;
+    animation-duration: 5s;
+}
+
+@keyframes moveinLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80%{
+
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+
+    }
+    
+}
+
+.head{
+
+    height: 95vh;
+    /* לינאר גרדיאנט (linear-gradient) הוא מעבר צבעים חלק מכיוון אחד לשני. לדוגמה, כאן הצבע עובר משמאל לימין בין שני צבעים (#7ed56f ל-#28b458). ניתן גם לשלב מעבר צבעים יחד עם תמונה ברקע. */
+    /* לשים לב שצריך rgba */
+    background-image: linear-gradient(
+        to right, 
+        rgba(126, 213, 111, 0.912), 
+        rgba(0, 255, 38, 0.327)
+        ), url("../public/nature.png");
+    /* cover מכסה את כל הריבוע של אותו אובייקט ככה שהתמונה תתאים אליו */
+    background-size: cover;
+
+    box-sizing: border-box;
+    /* מתאים את עצמו אם מצמצים את המסך אם זה מלמעלה אז למעלה התמונה לא תשתנה אם זה מלמטה אז מלמטה */
+    background-position: top;
+
+    /* clip-path: polygon(x y, x y, x y); */
+    clip-path: polygon(0 0, x y, x y);
+
+}
