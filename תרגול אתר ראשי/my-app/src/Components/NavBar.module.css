@@ -1,0 +1,26 @@
+.mainNavBar {
+    display: inline-block;
+    margin: 0.5rem 1rem; /* הוספת ריווח אופקי בין כפתורים */
+    position: relative;
+    left: 30%;
+    top: 0;
+    /* Optional for nice button look: */
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem;
+    background: #fff;
+    border-radius: 2rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mainNavBar:hover{
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+}
+.mainNavBar:active{
+    transform: translateY(-0.1rem);
+    background-color: rgba(94, 94, 94, 0.753);
+    color: white;
+
+}

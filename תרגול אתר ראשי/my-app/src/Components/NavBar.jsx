@@ -1,5 +1,6 @@
 import { useUser } from "../Contexts/userContext"
 import { useNavigate } from 'react-router-dom';
+import Styles from "./NavBar.module.css"
 
 export function NavBar(){
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ export function NavBar(){
     return (
         <div>
             {buttons.map((btn) => (
-                <button
+                <button className={Styles.mainNavBar}
                     key={btn.label}
                     onClick={
                         btn.onClick

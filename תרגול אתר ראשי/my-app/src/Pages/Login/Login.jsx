@@ -39,7 +39,7 @@ export function Login(){
     return(
         <>
          <form onSubmit={handlelogin} autoComplete="off" className={styles.loginForm}>
-         <h1>Login</h1>
+         <h1 className={styles.loginHeader}>Login</h1>
             <label className={styles.headmail}>Email:
             <input 
                 type="email" 
@@ -58,8 +58,8 @@ export function Login(){
                 autoComplete="new-password"
             />
             </label>
-            <button type="submit" className={styles.btnPassword}>Login</button>
-            {error && <p className={styles.err}>{error}</p>}
+            <button type="submit" className={styles.btnLogin}>Login</button>
+            {/* {error && <p className={styles.err}>{error}</p>} */}
 
             <div>No user yet?
             please register 

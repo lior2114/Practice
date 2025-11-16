@@ -5,23 +5,84 @@
  transform: translate(-80%, -80%);
  text-align: center;
 box-sizing: border-box;
+margin-top: 5rem;
 }
 
+.loginHeader{
+    position: relative;
+    display: block;
+    margin: 1rem;
+    animation: toDown 1s ease-out;
+    animation-fill-mode: backwards;
+    font-size: 4rem;
+    border-bottom: 2px solid #000407;
+}
 
+@keyframes toDown {
+    0%{
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .headmail{
     position: relative;
     display: block;
     margin: 1rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    background-color: aqua;
+    padding: 0.5rem;
+    border-radius: 10rem;
+    animation: toRight 1s ease-out;
+}
 
+@keyframes toRight {
+    0%{
+        transform: translateX(-1rem);
+        opacity: 0;
+    }
+    60%{
+        transform: translateX(1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
 }
 
 .headPassword{
     position: relative;
-    display: inline-block;
+    display: block;
+    margin: 1rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background-color: aqua;
+    animation: toLeft 1s ease-out;
+    border-radius: 1.5rem;
+}
+
+@keyframes toLeft {
+    0%{
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+    60%{
+        transform: translateX(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 
-.btnPassword{
+.btnLogin{
     position: relative;
     display: block;
     margin: 1rem auto 1rem auto; /* center horizontally */
@@ -29,17 +90,18 @@ box-sizing: border-box;
     transition: all 0.2s;
     border-radius: 10rem;
     border: none;
+    font-size: 2rem;
     backface-visibility: hidden;
 }
 
-.btnPassword:hover{
+.btnLogin:hover{
     transform: translateY(-0.2rem);
     cursor: pointer;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0, .2);
+    box-shadow: 0 0.5rem 1rem rgb(253, 1, 1);
 }
 
-.btnPassword:active{
-    transform: translateY(-0.1rem);
+.btnLogin:active{
+    transform: translateY(0.1rem);
     background-color: white;
     color: gray;
 }
