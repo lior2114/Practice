@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
-import { useUser } from "../Contexts/userContext"
+import { useUser } from "../../Contexts/userContext"
 import { Link, useNavigate } from 'react-router-dom';
+import styles from "./login.module.css"
 
-export function Register(){
+export function Login(){
 
-    const {register, error, cleanError} = useUser()
+    const {login, error, cleanError} = useUser()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        username: "",
         email: "",
         password: ""
     })    
@@ -23,11 +23,11 @@ export function Register(){
         cleanError()
     }, [])
 
-    const handleRegister = async(e) =>{
-        e.preventDefault()// עוצר את ה-refresh של הדף
-        cleanError()//ואז מכאן זה ירוץ
+    const handlelogin = async(e) =>{
+        e.preventDefault()
+        cleanError()
         try{
-            await register(formData)
+            await login(formData)
             navigate("/")
         }
         catch(error){
@@ -38,33 +38,33 @@ export function Register(){
 
     return(
         <>
-         <h1>Register</h1>
-         <form onSubmit={handleRegister}>
-            <label>UserName: </label>
-            <input type="text"
-            name = "username"
-            value = {formData.username}
-            onChange={handleChange}
-            />
-            <label>Email:</label>
+         <form onSubmit={handlelogin} autoComplete="off" className={styles.loginForm}>
+         <h1>Login</h1>
+            <label className={styles.headmail}>Email:
             <input 
                 type="email" 
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                autoComplete="new-email"
             />
-            <label>Password:</label>
+            </label>
+            <label className={styles.headPassword}>Password:
             <input 
                 type="password" 
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                autoComplete="new-password"
             />
-            <button type="submit">Register</button>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            <div>Already have User? Login</div>
-             <button type="button" onClick={()=> navigate("/Login")}>To Login</button>
-        
+            </label>
+            <button type="submit" className={styles.btnPassword}>Login</button>
+            {error && <p className={styles.err}>{error}</p>}
+
+            <div>No user yet?
+            please register 
+            </div>
+            <button type="button" onClick={()=>navigate("/Register")}>Register</button>
         </form>
         </>
     )

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
-import { useUser } from "../Contexts/userContext"
+import { useUser } from "../../Contexts/userContext"
 import { Link, useNavigate } from 'react-router-dom';
 
-export function Login(){
+export function Register(){
 
-    const {login, error, cleanError} = useUser()
+    const {register, error, cleanError} = useUser()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
+        username: "",
         email: "",
         password: ""
     })    
@@ -22,11 +23,11 @@ export function Login(){
         cleanError()
     }, [])
 
-    const handlelogin = async(e) =>{
-        e.preventDefault()
-        cleanError()
+    const handleRegister = async(e) =>{
+        e.preventDefault()// עוצר את ה-refresh של הדף
+        cleanError()//ואז מכאן זה ירוץ
         try{
-            await login(formData)
+            await register(formData)
             navigate("/")
         }
         catch(error){
@@ -37,8 +38,14 @@ export function Login(){
 
     return(
         <>
-         <h1>Login</h1>
-         <form onSubmit={handlelogin}>
+         <h1>Register</h1>
+         <form onSubmit={handleRegister}>
+            <label>UserName: </label>
+            <input type="text"
+            name = "username"
+            value = {formData.username}
+            onChange={handleChange}
+            />
             <label>Email:</label>
             <input 
                 type="email" 
@@ -53,13 +60,11 @@ export function Login(){
                 value={formData.password}
                 onChange={handleChange}
             />
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
             {error && <p style={{color: 'red'}}>{error}</p>}
-
-            <div>No user yet?
-            please register 
-            </div>
-            <button type="button" onClick={()=>navigate("/Register")}>Register</button>
+            <div>Already have User? Login</div>
+             <button type="button" onClick={()=> navigate("/Login")}>To Login</button>
+        
         </form>
         </>
     )

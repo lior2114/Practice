@@ -1,0 +1,52 @@
+.loginForm{
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ transform: translate(-80%, -80%);
+ text-align: center;
+box-sizing: border-box;
+}
+
+
+.headmail{
+    position: relative;
+    display: block;
+    margin: 1rem;
+
+}
+
+.headPassword{
+    position: relative;
+    display: inline-block;
+}
+
+
+.btnPassword{
+    position: relative;
+    display: block;
+    margin: 1rem auto 1rem auto; /* center horizontally */
+    padding: 0.1rem 2rem;
+    transition: all 0.2s;
+    border-radius: 10rem;
+    border: none;
+    backface-visibility: hidden;
+}
+
+.btnPassword:hover{
+    transform: translateY(-0.2rem);
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0, .2);
+}
+
+.btnPassword:active{
+    transform: translateY(-0.1rem);
+    background-color: white;
+    color: gray;
+}
+
+.err{
+    position: relative;
+    color: black;
+    background-color: red;
+    text-transform: uppercase;
+}

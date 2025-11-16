@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom"
 import { NavBar } from "./Components/NavBar"
-import { About } from "./Pages/About"
-import { Home } from "./Pages/Home"
-import { Login } from "./Pages/Login"
-import { Register } from "./Pages/Register"
-import { Update } from "./Pages/Update"
+import { About } from "./Pages/About/About"
+import { Home } from "./Pages/Home/Home"
+import { Login } from "./Pages/Login/Login"
+import { Register } from "./Pages/Register/Register"
+import { Update } from "./Pages/Update/Update"
 import { useUser } from "./Contexts/userContext"
 
 

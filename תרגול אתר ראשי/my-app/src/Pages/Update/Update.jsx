@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useUser } from "../Contexts/userContext"
+import { useUser } from "../../Contexts/userContext"
 
 export function Update(){
 
