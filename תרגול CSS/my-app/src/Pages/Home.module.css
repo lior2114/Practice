@@ -1,0 +1,254 @@
+*,
+*::after,
+*::before{
+    /* כוכבית אומרת להכל  */
+    margin: 0;
+    padding: 0;
+    /* box-sizing: inherit; 
+       שורה זו קובעת שאופן מדידת הרוחב והגובה של כל אלמנט בדף (הודות לכוכבית) יירש את הערך מהאלמנט שמעליו (בדרך כלל מה־html או מה־body).
+       כך, אם נגדיר למשל ב־body או ב־html את box-sizing: border-box; —
+       כל האלמנטים גם יקבלו את המדידה הזו.
+       זה עוזר לשמור על שליטה עקבית על הדרך שהרוחב והגובה מאוחסנים בחישוב של האלמנטים בעמוד.
+    */
+    box-sizing: inherit;
+}
+
+/* הגדרנו פונט סייז של 10 
+כדי להתאים את הכל אליו ככה שגם אם נכנס מהטלפון הכל יהיה אותו הדבר 
+ונעשה את זה על ידי rem 
+אם הגדרנו שהפונט סייז הוא 10 אז הראם יהיה 1 
+ועכשיו נשנה בקוד את כל מה שכתוב בפקיסל לרם על ידי חילוק של הכל ב 10 
+*/
+
+/* בדיפולט הדף הוא על 16 פיקסלים 
+אז אם רוצים 10 אז עושים 10 חלקי 16 ומה שיוצא זה האחוזים
+*/
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    font-family:"Lato", sans-serif ;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #f50000;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+
+.head{
+
+    height: 95vh;
+    /* לינאר גרדיאנט (linear-gradient) הוא מעבר צבעים חלק מכיוון אחד לשני. לדוגמה, כאן הצבע עובר משמאל לימין בין שני צבעים (#7ed56f ל-#28b458). ניתן גם לשלב מעבר צבעים יחד עם תמונה ברקע. */
+    /* לשים לב שצריך rgba */
+    background-image: linear-gradient(
+        to right, 
+        rgba(126, 213, 111, 0.912), 
+        rgba(0, 255, 38, 0.327)
+        ), url("../nature.png");
+
+    /* cover מכסה את כל הריבוע של אותו אובייקט ככה שהתמונה תתאים אליו */
+    background-size: cover;
+
+    /* relative - אומר שכל מה שיהיה בתוכו אז אם נעשה הרחקה של top או של עוד משהוא אז זה לא יתחיל את החישוב מהקצוות של הדף אלא מתוך הקופסה עצמה  */
+    position: relative;
+    
+    /* box-sizing: border-box; 
+       ההגדרה הזו קובעת כיצד מודדים את הרוחב והגובה של האלמנט. 
+       כאשר משתמשים ב-border-box, padding ו-border נכנסים לתוך החישוב של width ו-height, 
+       ולכן הגודל הכולל של הקופסה נשאר קבוע. זה עוזר להימנע מ"ניפוח" בלתי צפוי של אלמנטים כאשר מוסיפים padding או border.
+    */
+    box-sizing: border-box;
+
+    /* מתאים את עצמו אם מצמצים את המסך אם זה מלמעלה אז למעלה התמונה לא תשתנה אם זה מלמטה אז מלמטה */
+    background-position: top;
+
+    /* clip-path: polygon(x y, x y, x y); */
+    /* השמאל בתמונה זה ציר ה 0 מתחיל מלעמלה צד שמאל  */
+    /* יש אתר שאפשר לעצב תמונהו לראות את המיקומים */
+    /* https://bennettfeely.com/clippy/ */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.logoBox{
+    position:absolute;
+    top: 2rem;
+    left: 2rem;
+}
+.logo{
+    height: 3.5rem;
+}
+
+
+.textBox{
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    /* השורה transform: translate(-50%,-50%) מזיזה את התיבה הזאת (textBox) במדויק למרכז של העמוד.
+       top: 40% ו-left: 50% ממקמים את הפינה השמאלית העליונה של התיבה בערך במרכז,
+       ואז ה-translate מזיז את התיבה חצי מהרוחב שלה שמאלה וחצי מהגובה שלה למעלה,
+       כך שהתיבה תהיה ממורכזת במדויק באמצע המסך. */
+    transform: translate(-50%,-50%);
+    text-align: center;
+    
+}
+
+.headPrimary{
+    color: white;
+    text-transform: uppercase;
+
+    /* לבטל קפיצות באנימציה */
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+}
+
+.headerMain{
+    /* display: block;
+       הצגת האלמנט הזה בשורה חדשה בפני עצמו, כלומר שהכותרת הראשית (headerMain) תופיע בשורה משלה ולא תעמוד ליד אלמנטים אחרים בשורה. */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: toRight ;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    /* יעשה את האנמיציה כמה פעמים */
+    /* animation-iteration-count: 3; 
+    כאן זה דילאי
+     animation-delay: 3s; */
+}
+
+@keyframes toRight {
+    0% {
+        opacity: 0; 
+        transform: translateX(-10rem);
+
+    }
+    80%{
+        transform: translateX(1rem) ;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.buttomHead{
+    display: block;
+    font-size: 2rem;
+    font-weight: 40rem;
+    letter-spacing: 1.74rem;
+    animation: toLeft 1.5s ease-out;
+
+}
+
+@keyframes toLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80%{
+        transform: translateX(-1rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+
+    }
+    
+}
+
+
+@keyframes toButtom {
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+
+    }
+    
+}
+
+.btn,
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+
+    /* זה חוק עיצוב שמסיר קו תחתון מהקישורים/כפתורים באתר. 
+       text-decoration: none; אומר לדפדפן לא להציג קו תחתי */
+    text-decoration: none;
+    
+    padding:1.5rem 4rem;
+
+    /* display: inline-block; מפעיל את הכפתור כך שהוא יוצג כמו בלוק, אך באותו שורה עם אלמנטים אחרים */
+    display: inline-block;
+    border: none;
+    border-radius: 10rem;
+    /* מאפיין זה קובע שכל שינוי (כמו צבע, מיקום, גודל וכו') באלמנט יהיה מעבר חלק ואיטי שיימשך 0.2 שניות */
+    transition: all 0.2s;
+    position: relative;
+}
+
+.btn:hover{
+    transform: translateY(-0.3rem);
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0, .2);
+}
+
+.btn:active{
+    transform: translateY(-0.1rem);
+}
+.btnWhite{
+    background-color: #fff;
+    color: #777;
+}
+
+/*
+הסלקטור .btn::after ב-CSS יוצר אלמנט ויזואלי "מדומה" שמתווסף אחרי התוכן של הכפתור (btn), בלי להוסיף HTML חדש בפועל.
+למה זה טוב? משתמשים בזה ליצירת אפקטים מיוחדים על הכפתור, כמו רקע אנימטיבי שמגיב על ריחוף (hover) או הקלקה.
+ה"after" מקבל עיצוב, כמו צבע, צל, טרנספורמציה – ויכול לעזור לאנימציות יפות בלי לשנות את מבנה הדף.
+בדוגמה כאן, הוא יוצר רקע עגול ואנימטיבי שמופיע מאחורי הכפתור כשמרחפים עליו.
+*/
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* 
+       transition: all 0.4s; אומר לדפדפן שכל שינוי במאפייני האלמנט (כמו צבע, גודל, צל ועוד)
+       יתרחש בהדרגתיות במשך 0.4 שניות. זה גורם לאנימציה חלקה כאשר עוברים עם העכבר או משנים סטיילים,
+       במקום שינוי חד ומיידי.
+    */
+    transition: all 0.4s;
+
+}
+.btnWhite::after{
+    background-color: white;
+
+}
+
+/* האנימציה של הגלים */
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btnAnimated{
+    animation: toButtom 0.5s ease-out 0.3s;
+    /* backwards - כדי שיתחיל מהאנימציה בהתחלה שהיא בלתי נראית כמו שהגדרנו אותה בקיפריים */
+    animation-fill-mode: backwards;
+}

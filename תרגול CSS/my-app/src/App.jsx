@@ -1,4 +1,4 @@
-import { Square } from "./Pages/Square";
+import { Home } from "./Pages/Home";
 
 
 export default function App() {
@@ -6,7 +6,7 @@ export default function App() {
 
   return (
     <>
-      <Square/>
+      <Home/>
     </>
   )
 }
