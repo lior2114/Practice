@@ -181,6 +181,7 @@ class UserModel:
             raise e
     
     @staticmethod
+    #מקבל את כל סוגי האלמנטים שמכניסים אליו יכול לצפות ל 1 או ל 2 ואפילו יותר 
     def update_user(user_id, **kwargs):
         """Update user by ID"""
         try:
@@ -193,21 +194,22 @@ class UserModel:
             
             for field, value in kwargs.items():
                 if field in ['username', 'email', 'password']:
-                    update_fields.append(f"{field} = ?")
+                    update_fields.append(f"{field} = ?") #[first_name, password]
                     if field == 'password':
                         values.append(UserModel.hash_password(value))
                     else:
-                        values.append(value)
+                        values.append(value) #["david", "123456"]
             
             if not update_fields:
                 conn.close()
                 return False
-            
+            # יכנס בסוף כי בסוף זה הוליו האחרון של ה SQL
             values.append(user_id)
+            #     והפסיק אומר שים לכל מה שמצטרף בסוף פסיק \ פסיק בינהם || יש סימן שאלה והווליום יכנסו לתוכו
             query = f"UPDATE users SET {', '.join(update_fields)} WHERE id = ?"
             
             cursor.execute(query, values)
-            
+
             if cursor.rowcount == 0:
                 conn.close()
                 return False

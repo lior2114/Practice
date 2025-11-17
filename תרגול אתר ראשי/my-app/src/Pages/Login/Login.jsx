@@ -58,8 +58,8 @@ export function Login(){
                 autoComplete="new-password"
             />
             </label>
+            {error && <p className={styles.err}>{error}</p>}
             <button type="submit" className={styles.btnLogin}>Login</button>
-            {/* {error && <p className={styles.err}>{error}</p>} */}
 
             <div className={styles.registerText}>No user yet?
             please register 
