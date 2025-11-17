@@ -41,9 +41,9 @@ export function NavBar(){
     }
 
     return (
-        <div>
+        <div className={Styles.navBar}>
             {buttons.map((btn) => (
-                <button className={Styles.mainNavBar}
+                <button className={Styles.secNavBar}
                     key={btn.label}
                     onClick={
                         btn.onClick

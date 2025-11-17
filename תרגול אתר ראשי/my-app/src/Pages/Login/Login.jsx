@@ -61,10 +61,10 @@ export function Login(){
             <button type="submit" className={styles.btnLogin}>Login</button>
             {/* {error && <p className={styles.err}>{error}</p>} */}
 
-            <div>No user yet?
+            <div className={styles.registerText}>No user yet?
             please register 
             </div>
-            <button type="button" onClick={()=>navigate("/Register")}>Register</button>
+            <button type="button" className = {styles.btnRegister} onClick={()=>navigate("/Register")}>Register</button>
         </form>
         </>
     )
