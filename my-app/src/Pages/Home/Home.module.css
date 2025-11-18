@@ -1,0 +1,14 @@
+.mainPage{
+    height: 95vh;
+    background-size: cover;
+    position: relative;
+    /* Remove trailing commas, fix path for dev-server and prod (try ../assets/background.jpeg or /assets/background.jpeg if needed) */
+    background-image: 
+        linear-gradient(
+            to right,
+            rgba(26, 59, 206, 0.116), 
+            rgba(46, 161, 26, 0.103)
+        ),
+        url("../../assets/background.jpeg");
+    box-sizing: border-box;
+}

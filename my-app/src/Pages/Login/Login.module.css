@@ -1,0 +1,166 @@
+.loginForm {
+  position: absolute;
+  top: 70%;
+  left: 55%;
+  transform: translate(-80%, -80%);
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 5rem;
+  backdrop-filter: blur(3rem);
+  box-shadow: 0 0 3rem rgba(255, 6, 6, 0.37);
+  border: 0.2rem solid rgb(250, 250, 250);
+  align-items: center;
+  border-radius: 10rem;
+  padding: 4rem;
+}
+
+.loginHeader {
+  position: relative;
+  display: block;
+  margin: 0.1rem;
+  animation: toDown 1s ease-out;
+  animation-fill-mode: backwards;
+  font-size: 10rem;
+  border-bottom: 0.5rem solid #000407;
+}
+
+@keyframes toDown {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headmail {
+  position: relative;
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  font-weight: 400;
+  font-size: 4rem;
+  padding: 0.5rem;
+  border-radius: 10rem;
+  animation: toRight 1s ease-out;
+
+  & input {
+    border-radius: 10rem;
+    background-color: rgb(17, 137, 207);
+    color: rgba(255, 255, 255, 0.788);
+    font-size: 3rem;
+  }
+}
+
+@keyframes toRight {
+  0% {
+    transform: translateX(-1rem);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.headPassword {
+  position: relative;
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 4rem;
+  padding: 0.5rem;
+  animation: toLeft 1s ease-out;
+  border-radius: 1.5rem;
+  & input {
+    border-radius: 10rem;
+    background-color: rgb(17, 137, 207);
+    color: rgba(255, 255, 255, 0.788);
+    font-size: 3rem;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    transform: translateX(1rem);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btnLogin {
+  left: 5rem;
+  margin: 1rem auto 1rem auto;
+  /* center horizontally */
+  padding: 0.1rem 5rem;
+  transition: all 0.2s;
+  border-radius: 10rem;
+  border: none;
+  font-size: 4rem;
+  backface-visibility: hidden;
+}
+
+.btnLogin:hover {
+  transform: translateY(-0.2rem);
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgb(1, 253, 198);
+}
+
+.btnLogin:active {
+  transform: translateY(0.1rem);
+  background-color: white;
+  color: gray;
+}
+
+.err {
+  position: relative;
+  color: black;
+  background-color: red;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  font-weight: bold;
+  width: 15rem;
+  left: 35%;
+  font-size: 1.5rem;
+}
+
+.registerText {
+  font-size: 4rem;
+  border-radius: 10rem;
+  font-family: fantasy;
+}
+
+.btnRegister {
+  border-radius: 10rem;
+  border: none;
+  transition: all 0.2s;
+  font-size: 4rem;
+  position: relative;
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0 0.5rem 0.5rem rgb(255, 14, 14);
+  }
+  &:active {
+    transform: translateY(0.1rem);
+  }
+}

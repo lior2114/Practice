@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  top: 0;
+  left: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 66.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  padding: 0;
+  /* box-sizing: border-box; 
+       שורה זו קובעת שכל ריפוד (padding) ומסגרת (border)
+       ייחשבו כחלק מהרוחב/גובה של האלמנט, כך שהגודל הסופי של התיבה לא "יתנפח" כשמוסיפים להם ערכים.
+       זה עושה את עיצוב הדף ליותר פשוט וצפוי.
+    */
+  box-sizing: border-box;
+  background-color: rgba(73, 77, 72, 0.356);
+}
+
+.darkmode {
+  background-color: black;
+  color: white;
+}
+
+.whitemode {
+  background-color: white;
+  color: black;
+}
