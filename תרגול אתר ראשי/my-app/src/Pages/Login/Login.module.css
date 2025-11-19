@@ -1,22 +1,24 @@
 .loginForm {
   position: absolute;
+  display: block;
   top: 70%;
   left: 55%;
   transform: translate(-80%, -80%);
   text-align: center;
   box-sizing: border-box;
-  margin-top: 5rem;
+  margin-top: 20rem;
   backdrop-filter: blur(3rem);
   box-shadow: 0 0 3rem rgba(255, 6, 6, 0.37);
   border: 0.2rem solid rgb(250, 250, 250);
   align-items: center;
   border-radius: 10rem;
   padding: 4rem;
+  background-color: red;
 }
 
 .loginHeader {
   position: relative;
-  display: block;
+  display: inline-flex;
   margin: 0.1rem;
   animation: toDown 1s ease-out;
   animation-fill-mode: backwards;
@@ -34,7 +36,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} 
 
 .headmail {
   position: relative;
@@ -109,6 +111,7 @@
 }
 
 .btnLogin {
+  position: relative;
   left: 5rem;
   margin: 1rem auto 1rem auto;
   /* center horizontally */
@@ -118,19 +121,38 @@
   border: none;
   font-size: 4rem;
   backface-visibility: hidden;
+
+  &:hover{
+    transform: translateY(-0.2rem);
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgb(1, 253, 198);
+  }
+
+  &:active{
+    transform: translateY(0.1rem) scale(0.9);
+    background-color: white;
+    color: gray
+  }
+
+  &::after{
+    content: "";
+    display:inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    z-index: -1;
+    transition: all 0.4s;
+    background-color: transparent;
+  }
+  &:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+    background-color: rgba(0, 255, 247, 0.423);
+  }
 }
 
-.btnLogin:hover {
-  transform: translateY(-0.2rem);
-  cursor: pointer;
-  box-shadow: 0 0.5rem 1rem rgb(1, 253, 198);
-}
 
-.btnLogin:active {
-  transform: translateY(0.1rem);
-  background-color: white;
-  color: gray;
-}
 
 .err {
   position: relative;

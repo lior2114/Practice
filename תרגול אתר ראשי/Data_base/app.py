@@ -17,6 +17,10 @@ CORS(app,
 from models import init_database
 init_database()
 
+# --- Add: Create admin user if not exists ---
+from models.user_model import UserModel
+
+
 # Import routes after app initialization
 from routes.user_routes import user_bp
 

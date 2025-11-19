@@ -9,11 +9,10 @@ export function NavBar() {
   const [darkmode, setDarkmode] = useState(false);
 
   // Apply dark mode class to <body>
-  useEffect(() => {
-    document.body.classList.toggle("darkmode", darkmode);
-    document.body.classList.toggle("whitemode", !darkmode);
-  }, [darkmode]);
-
+  useEffect(()=>{
+    document.body.classList.toggle("darkmode", darkmode)
+    document.body.classList.toggle("darkmode", !darkmode)
+  },[darkmode])
   const handleDarkMode = () => {
     setDarkmode((prev) => !prev);
   };

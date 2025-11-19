@@ -210,14 +210,18 @@ class UserModel:
             
             cursor.execute(query, values)
 
+            # השורה הזאת בודקת אם לא התעדכן אף רשומה בטבלה אחרי פקודת ה-UPDATE,
+            # כלומר לא היה משתמש עם ה-id המבוקש או שהנתונים שנשלחו זהים לקודמים ולכן לא קרה שינוי. 
+            # אם לא שונתה אף שורה, תנאי זה יתקיים.
             if cursor.rowcount == 0:
                 conn.close()
                 return False
-            
             conn.commit()
-            conn.close()
-            
+            conn.close()    
             return True
+        
+        
+        #אם יש נתונים שהם אותו דבר אז זה יחזיר את זה כמו אותו שם 
         except sqlite3.IntegrityError:
             conn.close()
             raise Exception("Username or email already exists")

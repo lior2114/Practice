@@ -157,7 +157,10 @@ class UserController:
                 'success': False,
                 'error': str(e)
             }), 500
-    
+
+    # def update_user(user_id):  # ה-user_id מגיע מה-url
+    #     data = request.get_json()  # וכל שאר הנתונים מה-body
+
     @staticmethod
     def update_user(user_id):
         """Update user by ID"""
@@ -169,47 +172,47 @@ class UserController:
                     'success': False,
                     'error': 'User not found'
                 }), 404
-            
+
             data = request.get_json()
             if not data:
                 return jsonify({
                     'success': False,
                     'error': 'No data provided for update'
                 }), 400
-            
+
             # Validate email format if provided
             if 'email' in data and not UserController.validate_email(data['email']):
                 return jsonify({
                     'success': False,
                     'error': 'Invalid email format'
                 }), 400
-            
+
             # Validate password length if provided
             if 'password' in data and len(data['password']) < 6:
                 return jsonify({
                     'success': False,
                     'error': 'Password must be at least 6 characters long'
                 }), 400
-            
+
             # Update user
             success = UserModel.update_user(user_id, **data)
-            
+
             if not success:
                 return jsonify({
                     'success': False,
                     'error': 'Failed to update user'
                 }), 500
-            
+
             # Get updated user
             updated_user = UserModel.get_user_by_id(user_id)
             updated_user.pop('password', None)
-            
+
             return jsonify({
                 'success': True,
                 'data': updated_user,
                 'message': 'User updated successfully'
             }), 200
-            
+
         except Exception as e:
             return jsonify({
                 'success': False,

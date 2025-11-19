@@ -21,11 +21,10 @@ body {
        זה עושה את עיצוב הדף ליותר פשוט וצפוי.
     */
   box-sizing: border-box;
-  background-color: rgba(73, 77, 72, 0.356);
 }
 
 .darkmode {
-  background-color: black;
+  background-color: rgba(73, 77, 72, 0.356);
   color: white;
 }
 
