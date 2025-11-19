@@ -4,15 +4,46 @@
     transform: translate(-50%, -50%);
     align-items: center;
     box-sizing: border-box;
-    margin-top: 30rem;
+    margin-top: 35rem;
     border: 0.2rem solid rgb(250,250,250);
     box-shadow: 0 0 3rem rgba(40, 139, 196, 0.37);
     /* animation: toTop 1s ease-out; */
     border-radius: 10rem;
+    background-color: rgb(201, 201, 216);
 }
 
 
-.uder_idText{
+.hederUpdate{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  border-bottom: 1rem solid black;
+  border-radius: 4rem;
+  margin: 4rem auto;
+  background: linear-gradient(to right, #0783cb 0%, #0cda70 100%);
+  box-shadow: 0 0 5rem rgba(10, 200, 207, 0.5);
+  padding: 1rem 4rem;
+  width: fit-content;
+  min-width: 20rem;
+  animation: toUp 1s ease-in;
+}
+
+
+
+@keyframes toUp{
+  0%{
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+}
+.input_idText{
     position: relative;
     display: flex;
     margin: 1rem;
@@ -27,8 +58,9 @@
     animation: toRight 1s ease-out;
     & input {
         border-radius: 10rem;
-        background-color: rgb(206, 215, 221);
-        color: rgba(214, 96, 96, 0.788);
+        background: linear-gradient(to right, #0783cb 0%, #0cda70 100%);
+        box-shadow: 0 0 5rem rgba(10, 200, 207, 0.5);
+        color: rgba(0, 0, 0, 0.788);
         font-size: 3rem;
         text-align: center;
     

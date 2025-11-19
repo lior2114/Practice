@@ -35,8 +35,8 @@ export function Update(){
 
     return(
         <form className={styles.headForm} onSubmit={handleForm} autoComplete="off">
-
-        <label className={styles.uder_idText}>user_id:
+            <div className={styles.hederUpdate}>Update user</div>
+        <label className={styles.input_idText}>user_id:
             <input type="text" 
             placeholder="user_id"
             name="user_id"
@@ -45,7 +45,7 @@ export function Update(){
             />
         </label>
 
-        <label className={styles.uder_idText}>username:
+        <label className={styles.input_idText}>username:
             <input type="text"
             placeholder="username"
             name="username"
@@ -55,7 +55,7 @@ export function Update(){
             />
         </label >
 
-        <label className={styles.uder_idText}>email:
+        <label className={styles.input_idText}>email:
             <input type="email"
             placeholder="email"
             name="email"
@@ -65,7 +65,7 @@ export function Update(){
             />
         </label>
 
-        <label className={styles.uder_idText}>password:
+        <label className={styles.input_idText}>password:
             <input type="password"
             placeholder="password"
             name="password"

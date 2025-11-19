@@ -1,4 +1,6 @@
 .mainPage{
+    position: absolute;
+    display: block;
     height: 95vh;
     background-size: cover;
     position: relative;
@@ -11,4 +13,22 @@
         ),
         url("../../assets/background.jpeg");
     box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+}
+
+.header{
+    position:relative;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 10rem;
+    color:white;
+    border-bottom: 1rem solid black;
+    border: 1rem solid rgb(0, 98, 255);
+    border-radius: 100rem;
+    box-shadow: 0 0 5rem rgb(0, 28, 235);
+    width: fit-content;
+    min-width: 60rem;
+
 }
