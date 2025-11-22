@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "compile:sass": "sass src/sass/Home.module.scss src/Pages/Home/Home.module.css -w"
+    "compile:sass": "sass src/sass/main.scss src/Pages/Home/Home.css -w"
   },
   "dependencies": {
     "live-server": "^1.2.2",

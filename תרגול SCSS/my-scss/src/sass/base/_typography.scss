@@ -1,0 +1,31 @@
+.headPrimary {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  &__text_Box {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+  }
+  &__header_Main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: toRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+
+    &__buttom_Head {
+      display: block;
+      font-size: 2rem;
+      font-weight: 40rem;
+      letter-spacing: 1.74rem;
+      animation: toLeft 1.5s ease-out;
+    }
+  }
+}
