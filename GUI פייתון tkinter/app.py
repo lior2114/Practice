@@ -1,0 +1,1 @@
+hello = int(input("Enter a number: "))

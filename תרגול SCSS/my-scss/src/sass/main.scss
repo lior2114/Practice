@@ -1,0 +1,23 @@
+// abstracts
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+// base
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+//pages
+@import "pages/home";
+
+//components
+@import "components/buttons";
+
+//layouts
+@import "layout/header";
+@import "layout/grid";
+
+//כדי לשנות מיקום css ללכת ל
+//package

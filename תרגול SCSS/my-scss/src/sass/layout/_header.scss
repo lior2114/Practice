@@ -1,0 +1,24 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right,
+      rgba($color-primary-light, 0.912),
+      rgba($color-primary-dark, 0.327)
+    ),
+    url("../../assets/nature.png");
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+  &__logo_Box {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+}

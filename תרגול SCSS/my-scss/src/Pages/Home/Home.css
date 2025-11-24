@@ -1,0 +1,242 @@
+@keyframes toRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes toLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes toButtom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+*,
+*::before,
+*::after {
+  top: 0;
+  left: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 66.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #f50000;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.darkmode {
+  background-color: rgba(73, 77, 72, 0.356);
+  color: white;
+}
+
+.whitemode {
+  background-color: white;
+  color: black;
+}
+
+.headPrimary {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.headPrimary__text_Box {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+.headPrimary__header_Main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: toRight;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+}
+.headPrimary__header_Main__buttom_Head {
+  display: block;
+  font-size: 2rem;
+  font-weight: 40rem;
+  letter-spacing: 1.74rem;
+  animation: toLeft 1.5s ease-out;
+}
+
+.heading_secondery {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+.heading_secondery:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.heading_tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.u_center_text {
+  text-align: center;
+}
+
+.u_margin_buttom_8 {
+  margin-bottom: 8rem;
+}
+
+.section_about {
+  background-color: #c7c2c2;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1.6rem;
+  border: none;
+}
+.btn:hover {
+  transform: translateY(-0.3rem);
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.btn__White {
+  background-color: #fff;
+  color: #777;
+}
+.btn__White::after {
+  background-color: #fff;
+}
+.btn__Animated {
+  animation: toButtom 0.5s ease-out 0.3s;
+  animation-fill-mode: backwards;
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.912), rgba(40, 180, 133, 0.327)), url("../../assets/nature.png");
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+.header__logo_Box {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+.header__logo {
+  height: 3.5rem;
+}
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row [class^=col] {
+  float: left;
+}
+.row [class^=col]:not(:last-child) {
+  margin-right: 6rem;
+}
+.row .col_1_of_2 {
+  width: calc((100% - 6rem) / 2);
+}
+.row .col_1_of_3 {
+  width: calc((100% - 2 * 6rem) / 3);
+}
+.row .col_2_of_3 {
+  width: calc(2 * (100% - 2 * 6rem) / 3 + 6rem);
+}
+.row .col_1_of_4 {
+  width: calc((100% - 3 * 6rem) / 4);
+}
+.row .col_2_of_4 {
+  width: calc(2 * (100% - 3 * 6rem) / 4 + 6rem);
+}
+.row .col_3_of_4 {
+  width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem);
+}
+
+/*# sourceMappingURL=Home.css.map */
