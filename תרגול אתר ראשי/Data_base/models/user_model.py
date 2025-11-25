@@ -39,7 +39,6 @@ class UserModel:
                 cursor.execute("UPDATE users SET role_id = 2 WHERE role_id IS NULL")
             
             conn.commit()
-            conn.close()
     
     @staticmethod
     def hash_password(password):
@@ -52,25 +51,22 @@ class UserModel:
         """Create a new user"""
         try:
             with UserModel.get_db_connection() as conn:
-             cursor = conn.cursor()
-            
-            hashed_password = UserModel.hash_password(password)
-            
-            cursor.execute('''
-                INSERT INTO users (username, email, password, role_id)
-                VALUES (?, ?, ?,2)
-            ''', (username, email, hashed_password))
-            
-            user_id = cursor.lastrowid
-            conn.commit()
-            conn.close()
-            
-            return user_id
+                cursor = conn.cursor()
+                
+                hashed_password = UserModel.hash_password(password)
+                
+                cursor.execute('''
+                    INSERT INTO users (username, email, password, role_id)
+                    VALUES (?, ?, ?,2)
+                ''', (username, email, hashed_password))
+                
+                user_id = cursor.lastrowid
+                conn.commit()
+                
+                return user_id
         except sqlite3.IntegrityError:
-            conn.close()
             raise Exception("Username or email already exists")
         except Exception as e:
-            conn.close()
             raise e
 
     @staticmethod
@@ -84,32 +80,25 @@ class UserModel:
                 exists = cursor.fetchone() is not None
 
                 if exists:
-                    conn.close()
                     return
 
                 admin_username = "lior"
                 admin_email = "khtur@gmail.com"
                 admin_password = "123456"
 
-            if not (admin_username and admin_email and admin_password):
-                # No env provided; skip creation gracefully
-                conn.close()
-                return
+                if not (admin_username and admin_email and admin_password):
+                    # No env provided; skip creation gracefully
+                    return
 
-            hashed_password = UserModel.hash_password(admin_password)
+                hashed_password = UserModel.hash_password(admin_password)
 
-            cursor.execute('''
-                INSERT OR IGNORE INTO users (username, email, password, role_id)
-                VALUES (?, ?, ?, 1)
-            ''', (admin_username, admin_email, hashed_password))
+                cursor.execute('''
+                    INSERT OR IGNORE INTO users (username, email, password, role_id)
+                    VALUES (?, ?, ?, 1)
+                ''', (admin_username, admin_email, hashed_password))
 
-            conn.commit()
-            conn.close()
+                conn.commit()
         except Exception as e:
-            try:
-                conn.close()
-            except Exception:
-                pass
             raise e
     
     @staticmethod
@@ -121,12 +110,9 @@ class UserModel:
                 
                 cursor.execute('SELECT * FROM users ORDER BY created_at DESC')
                 users = cursor.fetchall()
-                
-                conn.close()
-                
+
                 return [dict(user) for user in users]
         except Exception as e:
-            conn.close()
             raise e
     
     @staticmethod
@@ -138,12 +124,9 @@ class UserModel:
                 
                 cursor.execute('SELECT * FROM users WHERE id = ?', (user_id,))
                 user = cursor.fetchone()
-                
-                conn.close()
-            
+
             return dict(user) if user else None
         except Exception as e:
-            conn.close()
             raise e
     
     @staticmethod
@@ -155,29 +138,23 @@ class UserModel:
                 
                 cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
                 user = cursor.fetchone()
-                
-                conn.close()
-            
+
             return dict(user) if user else None
         except Exception as e:
-            conn.close()
             raise e
     
     @staticmethod
     def get_user_by_email(email):
         """Get user by email"""
         try:
-           with UserModel.get_db_connection() as conn:
-            cursor = conn.cursor()
-            
-            cursor.execute('SELECT * FROM users WHERE email = ?', (email,))
-            user = cursor.fetchone()
-            
-            conn.close()
-            
-            return dict(user) if user else None
+            with UserModel.get_db_connection() as conn:
+                cursor = conn.cursor()
+                
+                cursor.execute('SELECT * FROM users WHERE email = ?', (email,))
+                user = cursor.fetchone()
+                            
+                return dict(user) if user else None
         except Exception as e:
-            conn.close()
             raise e
     
     @staticmethod
@@ -185,67 +162,59 @@ class UserModel:
     def update_user(user_id, **kwargs):
         """Update user by ID"""
         try:
-           with UserModel.get_db_connection() as conn:
-            cursor = conn.cursor()
-            
-            # Build update query dynamically
-            update_fields = []
-            values = []
-            
-            for field, value in kwargs.items():
-                if field in ['username', 'email', 'password']:
-                    update_fields.append(f"{field} = ?") #[first_name, password]
-                    if field == 'password':
-                        values.append(UserModel.hash_password(value))
-                    else:
-                        values.append(value) #["david", "123456"]
-            
-            if not update_fields:
-                conn.close()
-                return False
-            # יכנס בסוף כי בסוף זה הוליו האחרון של ה SQL
-            values.append(user_id)
-            #     והפסיק אומר שים לכל מה שמצטרף בסוף פסיק \ פסיק בינהם || יש סימן שאלה והווליום יכנסו לתוכו
-            query = f"UPDATE users SET {', '.join(update_fields)} WHERE id = ?"
-            
-            cursor.execute(query, values)
+            with UserModel.get_db_connection() as conn:
+                cursor = conn.cursor()
+                
+                # Build update query dynamically
+                update_fields = []
+                values = []
+                
+                for field, value in kwargs.items():
+                    if field in ['username', 'email', 'password']:
+                        update_fields.append(f"{field} = ?") #[first_name, password]
+                        if field == 'password':
+                            values.append(UserModel.hash_password(value))
+                        else:
+                            values.append(value) #["david", "123456"]
+                
+                if not update_fields:
+                    return False
+                # יכנס בסוף כי בסוף זה הוליו האחרון של ה SQL
+                values.append(user_id)
+                #     והפסיק אומר שים לכל מה שמצטרף בסוף פסיק \ פסיק בינהם || יש סימן שאלה והווליום יכנסו לתוכו
+                query = f"UPDATE users SET {', '.join(update_fields)} WHERE id = ?"
+                
+                cursor.execute(query, values)
 
-            # השורה הזאת בודקת אם לא התעדכן אף רשומה בטבלה אחרי פקודת ה-UPDATE,
-            # כלומר לא היה משתמש עם ה-id המבוקש או שהנתונים שנשלחו זהים לקודמים ולכן לא קרה שינוי. 
-            # אם לא שונתה אף שורה, תנאי זה יתקיים.
-            if cursor.rowcount == 0:
-                conn.close()
-                return False
-            conn.commit()
-            conn.close()    
-            return True
+                # השורה הזאת בודקת אם לא התעדכן אף רשומה בטבלה אחרי פקודת ה-UPDATE,
+                # כלומר לא היה משתמש עם ה-id המבוקש או שהנתונים שנשלחו זהים לקודמים ולכן לא קרה שינוי. 
+                # אם לא שונתה אף שורה, תנאי זה יתקיים.
+                if cursor.rowcount == 0:
+                    return False
+                conn.commit()
+                return True
         
         
         #אם יש נתונים שהם אותו דבר אז זה יחזיר את זה כמו אותו שם 
         except sqlite3.IntegrityError:
-            conn.close()
             raise Exception("Username or email already exists")
         except Exception as e:
-            conn.close()
             raise e
     
     @staticmethod
     def delete_user(user_id):
         """Delete user by ID"""
         try:
-           with UserModel.get_db_connection() as conn:
-            cursor = conn.cursor()
-            
-            cursor.execute('DELETE FROM users WHERE id = ?', (user_id,))
-            
-            if cursor.rowcount == 0:
-                conn.close()
-                return False
-            
-            conn.commit()
-            conn.close()
-            
-            return True
+            with UserModel.get_db_connection() as conn:
+                cursor = conn.cursor()
+                
+                cursor.execute('DELETE FROM users WHERE id = ?', (user_id,))
+                
+                if cursor.rowcount == 0:
+                    return False
+                
+                conn.commit()
+                
+                return True
         except Exception as e:
-            conn.close()
             raise e

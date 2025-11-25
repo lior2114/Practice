@@ -125,7 +125,7 @@ class ItemsModel:
             
             connection.commit()
             cursor.close()
-            return {"Succefull": f"Update item {item_id} Succefully: {pair}"}
+            return {"Succefull": f"item {item_id} Update Succefully item new name: {pair}"}
         
     @staticmethod
     def delete_item_by_id(item_id):
@@ -143,7 +143,7 @@ class ItemsModel:
             ''', (item_id,))
             connection.commit()
             cursor.close()
-            return {"Message": f"item {item[1]} deleted Successfully"}
+            return {"Message": f"item {item[1]} deleted Successfully item_id: {item[0]}"}
             
     @staticmethod
     def get_all_items():

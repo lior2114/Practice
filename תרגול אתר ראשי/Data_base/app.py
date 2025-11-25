@@ -2,7 +2,11 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 from datetime import datetime
+from models import InitDataBase
 
+# Import routes after app initialization
+from routes.user_routes import user_bp
+from routes.items_routs import items_bp
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -14,18 +18,13 @@ CORS(app,
      supports_credentials=True)
 
 # Import and initialize database
-from models.user_model import UserModel
-UserModel.init_Users_db()
-
-# --- Add: Create admin user if not exists ---
-from models.user_model import UserModel
+InitDataBase.init_database()
 
 
-# Import routes after app initialization
-from routes.user_routes import user_bp
 
 # Register blueprints
-app.register_blueprint(user_bp, url_prefix='/api/users')
+app.register_blueprint(user_bp)
+app.register_blueprint(items_bp)
 
 # Handle OPTIONS requests for CORS preflight
 @app.before_request
