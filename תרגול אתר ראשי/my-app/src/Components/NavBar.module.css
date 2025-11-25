@@ -1,0 +1,73 @@
+
+.navBar {
+    position: fixed;
+    top: 1rem;
+    left: 45%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    gap:15rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(3rem);
+    border-radius: 2.5rem;
+    padding: 0.5rem 2rem;
+    /* Responsive width */
+    width: fit-content;
+    min-width: 22rem;
+    max-width: 95vw;
+    box-shadow: 0 0 3rem rgba(0, 26, 255, 0.37);
+    border: 0.2rem solid rgba(255,255,255,0.18);
+}
+
+.secNavBar {
+    font-size: 1.4rem;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    color: #222;
+    /* 
+    outline: none;
+    שורה זו ב-CSS מבטלת את קווי המסגרת שמופיעים אוטומטית כשכפתור מקבל פוקוס (למשל, כשעוברים עליו עם טאב או מקליקים עליו).
+    לא תמיד מומלץ לבטל את outline לגמרי, כי הוא עוזר לנגישות – משתמשים שלא משתמשים בעכבר רואים כך על איזה כפתור הם נמצאים.
+    */
+    box-sizing: border-box;
+    /* Remove inline margin, use navBar gap */
+    min-width: 9rem;
+    font-family: inherit;
+
+    &:hover {
+        transform: translateY(-0.2rem) scale(1.05);
+        box-shadow: 0 0.7rem 1.2rem rgba(0,0,0,0.15);
+        background: #f8f8f8;}
+
+    &::after{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transition: all .2s;
+        border-radius: 100rem;
+        background-color: transparent;
+    }
+
+    &:hover::after{
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+        background-color: rgba(0, 170, 255, 0.759);
+    }
+    
+    
+    
+    &:active {
+        transform: translateY(0.1rem) scale(0.9);
+        background-color: rgba(94, 94, 94, 0.8);
+        color: #fff;
+    }
+}
+
+
