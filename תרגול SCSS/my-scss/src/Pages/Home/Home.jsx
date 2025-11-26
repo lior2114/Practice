@@ -1,5 +1,8 @@
 import "./Home.css";
 import logo from "../../assets/zscylogo.jpg";
+import nature_composition_1 from "../../assets/nature_composition_1.png";
+import nature_composition_2 from "../../assets/nature_composition_2.png";
+import nature_composition_3 from "../../assets/nature_composition_3.png";
 
 export function Home() {
   return (
@@ -23,27 +26,54 @@ export function Home() {
       <main>
         <section className="section_about">
           <div className="u_center_text u_margin_buttom_8">
-            <h2 className="heading_secondery">Exciting tours for adventurous people </h2>
+            <h2 className="heading_secondery">
+              Exciting tours for adventurous people{" "}
+            </h2>
           </div>
 
           <div className="row">
             <div className="col_1_of_2">
-              <h3 className="heading_tertiary">You're going to fall in love with nature</h3>
-              <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, facilis.</p>
-              
-              <h3 className="heading_tertiary">live adventures like you never have before</h3>
-              <p className="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, fugit!</p>
+              <h3 className="heading_tertiary">
+                You're going to fall in love with nature
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+                facilis.
+              </p>
+
+              <h3 className="heading_tertiary">
+                live adventures like you never have before
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                fugit!
+              </p>
+              <a href="#" className="btn-text">
+                Learn More &rarr;
+              </a>
             </div>
             <div className="col_1_of_2">
-              image composition
+              <div className="composition">
+                <img
+                  src={nature_composition_1}
+                  alt=""
+                  className="composition__photo composition__photo--p1"
+                />
+                <img
+                  src={nature_composition_2}
+                  alt=""
+                  className="composition__photo composition__photo--p2"
+                />
+                <img
+                  src={nature_composition_3}
+                  alt=""
+                  className="composition__photo composition__photo--p3"
+                />
+              </div>
             </div>
           </div>
         </section>
       </main>
-
-
-
-
 
       {/* //section 5 class  34 33:01
       רק דוגמא לשימוש ב _grid ב sass
