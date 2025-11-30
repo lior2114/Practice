@@ -1,4 +1,5 @@
 import "./Home.css";
+import "./icon-font.css";
 import logo from "../../assets/zscylogo.jpg";
 import nature_composition_1 from "../../assets/nature_composition_1.png";
 import nature_composition_2 from "../../assets/nature_composition_2.png";
@@ -69,6 +70,58 @@ export function Home() {
                   alt=""
                   className="composition__photo composition__photo--p3"
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="section_features">
+          <div className="row">
+            <div className="col_1_of_4">
+              <div className="feature_box">
+                <i className="feature_box__icon icon-basic-world"></i>
+                <h3 className="heading_tertiary u_margin_buttom_3">
+                  Explore the world
+                </h3>
+                <p className="feature_box__text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Accusamus, adipisci!
+                </p>
+              </div>
+            </div>
+            <div className="col_1_of_4">
+              <div className="feature_box">
+                <i className="feature_box__icon icon-basic-spread-text"></i>
+                <h3 className="heading_tertiary u_margin_buttom_3">
+                  Explore the world
+                </h3>
+                <p className="feature_box__text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Accusamus, adipisci!
+                </p>
+              </div>
+            </div>
+            <div className="col_1_of_4">
+              <div className="feature_box">
+                <i className="feature_box__icon icon-basic-signs"></i>
+                <h3 className="heading_tertiary u_margin_buttom_3">
+                  Explore the world
+                </h3>
+                <p className="feature_box__text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Accusamus, adipisci!
+                </p>
+              </div>
+            </div>
+            <div className="col_1_of_4">
+              <div className="feature_box">
+                <i className="feature_box__icon icon-basic-postcard-multiple"></i>
+                <h3 className="heading_tertiary u_margin_buttom_3">
+                  Explore the world
+                </h3>
+                <p className="feature_box__text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Accusamus, adipisci!
+                </p>
               </div>
             </div>
           </div>

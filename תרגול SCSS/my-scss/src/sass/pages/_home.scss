@@ -1,5 +1,25 @@
-.section_about{
-    background-color: $color-gray-light-1;
-    padding:25rem 0;
-    margin-top: -20vh;
+.section_about {
+  background-color: $color-gray-light-1;
+  padding: 25rem 0;
+  margin-top: -10vh;
+  clip-path: polygon(0 9%, 100% 0, 100% 100%, 0 95%);
+}
+
+.section_features {
+  padding: 25rem 0;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(123, 42, 87, 0.73),
+      rgba($color-primary-dark, 0.54)
+    ),
+    url("../../assets/nat_4.jpg");
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
+
+  transform: skewY(-7deg);
+  & > * {
+    // מדבר על כל הילדים שבתוך ה section_features כל מה שהוא פוגש ראשון אצלנו זה row
+    transform: skewY(7deg);
+  }
 }

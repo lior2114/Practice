@@ -130,6 +130,10 @@ body {
   text-align: center;
 }
 
+.u_margin_buttom_3 {
+  margin-bottom: 3rem;
+}
+
 .u_margin_buttom_8 {
   margin-bottom: 8rem;
 }
@@ -137,7 +141,19 @@ body {
 .section_about {
   background-color: #c7c2c2;
   padding: 25rem 0;
-  margin-top: -20vh;
+  margin-top: -10vh;
+  clip-path: polygon(0 9%, 100% 0, 100% 100%, 0 95%);
+}
+
+.section_features {
+  padding: 25rem 0;
+  background-image: linear-gradient(to right, rgba(123, 42, 87, 0.73), rgba(40, 180, 133, 0.54)), url("../../assets/nat_4.jpg");
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
+  transform: skewY(-7deg);
+}
+.section_features > * {
+  transform: skewY(7deg);
 }
 
 .btn {
@@ -240,7 +256,30 @@ body {
   z-index: 1;
 }
 .composition:hover .composition__photo:not(:hover) {
-  transform: scale(0.95);
+  transform: scale(0.95) translateY(-0.5rem);
+}
+
+.feature_box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+}
+.feature_box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.feature_box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
+}
+.feature_box__text {
+  text-transform: uppercase;
 }
 
 .header {

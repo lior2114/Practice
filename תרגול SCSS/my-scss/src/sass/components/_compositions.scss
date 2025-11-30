@@ -4,7 +4,7 @@
   &__photo {
     width: 55%;
     position: absolute;
-    box-shadow: 0 1.5rem 4rem rgba($color-balck, 0.4);
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
     border-radius: 10rem;
     filter: blur(0.3rem);
     transition: all 0.3s;
@@ -27,13 +27,13 @@
       outline: 1.5rem solid $color-primary-dark;
       filter: none;
       transform: scaleX(1.1) scaleY(1.1);
-      box-shadow: 0 2.5rem 4rem rgba($color-balck, 0.4);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.4);
       z-index: 1;
     }
   }
 
   // When any .composition__photo is hovered, scale down the others
   &:hover &__photo:not(:hover) {
-    transform: scale(0.95);
+    transform: scale(0.95) translateY(-0.5rem);
   }
 }
