@@ -7,7 +7,7 @@
 
 .section_features {
   padding: 25rem 0;
-
+  position: relative;
   background-image: linear-gradient(
       to right,
       rgba(123, 42, 87, 0.73),
@@ -22,4 +22,15 @@
     // מדבר על כל הילדים שבתוך ה section_features כל מה שהוא פוגש ראשון אצלנו זה row
     transform: skewY(7deg);
   }
+}
+
+.section_tours {
+  background-color: $color-gray-light-1;
+  // padding: <top> <right> <bottom> <left>
+  // 25rem - top padding
+  // 0     - right padding
+  // 15rem - bottom padding
+  // 0     - left padding
+  padding: 25rem 0 15rem 0;
+  margin-top: -11rem;
 }

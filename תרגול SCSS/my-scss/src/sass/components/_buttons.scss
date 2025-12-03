@@ -47,6 +47,15 @@
     }
   }
 
+  &__green {
+    background-color: $color-primary-dark;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary-dark;
+    }
+  }
+
   &__Animated {
     animation: toButtom 0.5s ease-out 0.3s;
     animation-fill-mode: backwards;

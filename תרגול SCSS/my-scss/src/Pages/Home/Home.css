@@ -138,6 +138,10 @@ body {
   margin-bottom: 8rem;
 }
 
+.u_margin_top_huge {
+  margin-top: 15rem;
+}
+
 .section_about {
   background-color: #c7c2c2;
   padding: 25rem 0;
@@ -147,6 +151,7 @@ body {
 
 .section_features {
   padding: 25rem 0;
+  position: relative;
   background-image: linear-gradient(to right, rgba(123, 42, 87, 0.73), rgba(40, 180, 133, 0.54)), url("../../assets/nat_4.jpg");
   background-size: cover;
   clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
@@ -154,6 +159,12 @@ body {
 }
 .section_features > * {
   transform: skewY(7deg);
+}
+
+.section_tours {
+  background-color: #c7c2c2;
+  padding: 25rem 0 15rem 0;
+  margin-top: -11rem;
 }
 
 .btn {
@@ -198,6 +209,13 @@ body {
 }
 .btn__White::after {
   background-color: #fff;
+}
+.btn__green {
+  background-color: #28b485;
+  color: #fff;
+}
+.btn__green::after {
+  background-color: #28b485;
 }
 .btn__Animated {
   animation: toButtom 0.5s ease-out 0.3s;
@@ -282,6 +300,124 @@ body {
   text-transform: uppercase;
 }
 
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 60rem;
+}
+.card__side {
+  height: 60rem;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 5rem;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+}
+.card__side--front {
+  background-color: #fff;
+}
+.card__side--back {
+  transform: rotateY(180deg);
+}
+.card__side--back-1 {
+  background-image: linear-gradient(to right bottom, #ffb990, #ff7730);
+}
+.card__side--back-2 {
+  background-image: linear-gradient(to right bottom, #55c57a, #7ed56f);
+}
+.card__side--back-3 {
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card__picture {
+  background-size: cover;
+  height: 50%;
+  background-blend-mode: color;
+}
+.card__picture--1 {
+  background-image: linear-gradient(to right bottom, #ffb990, #ff7730), url("../../assets/nat-5.jpg");
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+.card__picture--2 {
+  background-image: linear-gradient(to right bottom, #55c57a, #7ed56f), url("../../assets/nat-6.jpg");
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+.card__picture--3 {
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url("../../assets/nat-7.jpg");
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+.card__heading {
+  position: absolute;
+  top: 12rem;
+  left: 8rem;
+  text-align: right;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fff;
+  width: 75%;
+}
+.card__heading-span {
+  padding: 1rem 1.5rem;
+  -webkit-box-decoration-break: clone;
+}
+.card__heading-span--1 {
+  background-image: linear-gradient(to right bottom, rgba(255, 185, 144, 0.85), rgba(255, 119, 48, 0.85));
+}
+.card__heading-span--2 {
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.85), rgba(126, 213, 111, 0.85));
+}
+.card__heading-span--3 {
+  background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85));
+}
+.card__details ul {
+  list-style: none;
+  width: 70%;
+  margin: 0 3rem;
+}
+.card__details ul li {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+.card__details ul li:not(:last-child) {
+  border-bottom: 0.1rem solid #777;
+}
+.card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+.card__price-box {
+  color: #fff;
+  margin-bottom: 8rem;
+}
+.card__price-only {
+  font-weight: 100;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.card__price-value {
+  font-weight: 100;
+  font-size: 6rem;
+}
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to right, rgba(126, 213, 111, 0.912), rgba(40, 180, 133, 0.327)), url("../../assets/nature.png");
@@ -289,6 +425,7 @@ body {
   position: relative;
   box-sizing: border-box;
   background-position: top;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 .header__logo_Box {

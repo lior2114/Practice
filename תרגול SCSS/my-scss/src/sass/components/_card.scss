@@ -1,0 +1,190 @@
+.card {
+  //Functunality
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 60rem;
+
+  &__side {
+    height: 60rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; //קובע האם הצד האחורי של אלמנט יהיה גלוי כשהוא מסובב
+    border-radius: 5rem;
+    overflow: hidden; // מונע מהתמונה ששמנו למנוע מהקצוות להיות עגולים כמו שהגדרנו בהם את ה border radius
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    &--front {
+      background-color: $color-white;
+    }
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-light-2
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary,
+          $color-primary-light
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-light-2
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // for front
+  &__picture {
+    background-size: cover;
+    height: 50%;
+    // מאפשר שילוב הרקע עם ה-gradient שמעליו ליצירת אפקט חזותי מותאם
+    background-blend-mode: color;
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-light-2
+        ),
+        url("../../assets/nat-5.jpg");
+      -webkit-clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 80%,
+        0 100%
+      ); // שיעבוד לכל דפדפן אינטנט שישתמשו בו
+      // clip-path: polygon - יוצר חיתוך של התמונה לפי צורת מצולע שמוגדרת ע"י קואורדינטות (נקודות).
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary,
+          $color-primary-light
+        ),
+        url("../../assets/nat-6.jpg");
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-light-2
+        ),
+        url("../../assets/nat-7.jpg");
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+  }
+
+  //heading
+  &__heading {
+    position: absolute;
+    top: 12rem;
+    left: 8rem;
+    // לעיתים קביעת width + right "דוחים" אחד את השני: width:auto עדיף! (או להסיר width בכלל)
+    text-align: right;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: $color-white;
+    width: 75%; //יקטין את הספאן כדי שזה ירד שורה כי זה מקטין את הריווח בפנים
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    // מוודא שכאשר יש יותר משורה אחת, הרקע והפדינג של הספאן נשברים נכון וממשיכים בכל שורה בנפרד
+    -webkit-box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-light-2, 0.85)
+      );
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary, 0.85),
+        rgba($color-primary-light, 0.85)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.85),
+        rgba($color-tertiary-light-2, 0.85)
+      );
+    }
+  }
+  //details
+  &__details {
+    ul {
+      list-style: none;
+      width: 70%;
+      margin: 0 3rem;
+      li {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid $color-grey-dark;
+        }
+      }
+    }
+  }
+
+  //for back
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    // "white-space: nowrap;" גורם לתוכן לא לרדת שורה אלא להישאר בשורה אחת.
+  }
+
+  &__price-box {
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-weight: 100;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-weight: 100;
+    font-size: 6rem;
+  }
+}

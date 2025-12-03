@@ -18,8 +18,11 @@ export function Home() {
             <span className="headPrimary__header_Main">OutDoors</span>
             <span className="headPrimary__buttom_Head">Hello everyone</span>
           </h1>
-          <button className="btn btn__White btn__Animated">
-            Click to Discover
+          <button
+            className="btn btn__White btn__Animated"
+            onClick={() => window.open("https://unsplash.com/", "_blank")}
+          >
+            Click to Discover more pictures
           </button>
         </div>
       </div>
@@ -124,6 +127,119 @@ export function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="section_tours">
+          <div className="u_center_text u_margin_buttom_8">
+            <h2 className="heading_secondery">Most puplar tours</h2>
+          </div>
+
+          <div className="row">
+            {/* card 1 */}
+            <div className="col_1_of_3">
+              <div className="card">
+                <div className="card__side card__side--front">
+                  <div className="card__picture card__picture--1">&nbsp;</div>
+                  <h4 className="card__heading">
+                    <span className="card__heading-span card__heading-span--1">
+                      Explore caves
+                    </span>
+                  </h4>
+                  <div className="card__details">
+                    <ul>
+                      <li>3 day tour</li>
+                      <li>up to 40 people</li>
+                      <li>2 tour guys</li>
+                      <li>sleep in cozy hotels</li>
+                      <li>difficulty: easy</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card__side card__side--back  card__side--back-1 ">
+                  <div className="card__cta">
+                    <div className="card__price-box">
+                      <p className="card__price-only">only</p>
+                      <p className="card__price-value">$100</p>
+                    </div>
+                    <button className="btn btn__White btn__Animated">
+                      Book now!
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* card 2 */}
+            <div className="col_1_of_3">
+              <div className="card">
+                <div className="card__side card__side--front">
+                  <div className="card__picture card__picture--2">&nbsp;</div>
+                  <h4 className="card__heading">
+                    <span className="card__heading-span card__heading-span--2">
+                      the forests Explorer
+                    </span>
+                  </h4>
+                  <div className="card__details">
+                    <ul>
+                      <li>3 day tour</li>
+                      <li>up to 40 people</li>
+                      <li>2 tour guys</li>
+                      <li>sleep in cozy hotels</li>
+                      <li>difficulty: easy</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card__side card__side--back  card__side--back-2 ">
+                  <div className="card__cta">
+                    <div className="card__price-box">
+                      <p className="card__price-only">only</p>
+                      <p className="card__price-value">$497</p>
+                    </div>
+                    <button className="btn btn__White btn__Animated">
+                      Book now!
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* card 3 */}
+            <div className="col_1_of_3">
+              <div className="card">
+                <div className="card__side card__side--front">
+                  <div className="card__picture card__picture--3">&nbsp;</div>
+                  <h4 className="card__heading">
+                    <span className="card__heading-span card__heading-span--3">
+                      the snow adventure
+                    </span>
+                  </h4>
+                  <div className="card__details">
+                    <ul>
+                      <li>3 day tour</li>
+                      <li>up to 40 people</li>
+                      <li>2 tour guys</li>
+                      <li>sleep in cozy hotels</li>
+                      <li>difficulty: easy</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="card__side card__side--back  card__side--back-3 ">
+                  <div className="card__cta">
+                    <div className="card__price-box">
+                      <p className="card__price-only">only</p>
+                      <p className="card__price-value">$800</p>
+                    </div>
+                    <button className="btn btn__White btn__Animated">
+                      Book now!
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="u_center_text u_margin_top_huge">
+            <button className="btn btn__green">dicover all tours</button>
           </div>
         </section>
       </main>
