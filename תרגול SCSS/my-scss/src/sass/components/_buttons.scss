@@ -85,4 +85,7 @@
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
     transform: translateY(0rem);
   }
+  &__bigger {
+    font-size: 2rem !important;
+  }
 }

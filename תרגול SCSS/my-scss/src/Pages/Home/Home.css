@@ -167,6 +167,12 @@ body {
   margin-top: -11rem;
 }
 
+.section-stories {
+  padding: 15rem 0;
+  background-color: #c7c2c2;
+  background-size: cover;
+}
+
 .btn {
   text-transform: uppercase;
   text-decoration: none;
@@ -240,6 +246,9 @@ body {
 .btn-text:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0rem);
+}
+.btn-text__bigger {
+  font-size: 2rem !important;
 }
 
 .composition {
@@ -416,6 +425,57 @@ body {
 .card__price-value {
   font-weight: 100;
   font-size: 6rem;
+}
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rbga(#000, 0.1);
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg);
+}
+.story__shape {
+  width: 15rem;
+  height: 15rem;
+  float: left;
+  shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  transform: translateX(-6rem) skew(12deg);
+  position: relative;
+}
+.story__img {
+  height: 100%;
+  transform: translateX(-4rem) scale(1.4);
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+.story__text {
+  transform: skewX(12deg);
+}
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: #fff;
+  font-size: 1.7rem;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.story:hover .story__img {
+  transform: translateX(-4rem) scale(1);
+  filter: blur(0.3rem) brightness(80%);
 }
 
 .header {

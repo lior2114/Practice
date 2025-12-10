@@ -1,0 +1,58 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rbga($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 1rem;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left; // כדי שכל מה שמסביבו יזוז לצד שמאל (מפנה לו מקום)
+    // shape-outside מגדיר איך הטקסט יזרום מסביב לאלמנט (כלומר, הצורה של הזרימה - עיגול כאן)
+    shape-outside: circle(50% at 50% 50%);
+    // clip-path חותך את האלמנט עצמו פיזית לצורה שרצינו (עיגול)
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-6rem) skew(12deg);
+    position: relative;
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    font-size: 1.7rem;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(0.3rem) brightness(80%);
+  }
+}

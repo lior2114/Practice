@@ -4,7 +4,9 @@ import logo from "../../assets/zscylogo.jpg";
 import nature_composition_1 from "../../assets/nature_composition_1.png";
 import nature_composition_2 from "../../assets/nature_composition_2.png";
 import nature_composition_3 from "../../assets/nature_composition_3.png";
-
+import nature_composition_8 from "../../assets/nat-8.jpg";
+import nature_composition_9 from "../../assets/nat-9.jpg";
+import video_background from "../../assets/video.mp4";
 export function Home() {
   return (
     <>
@@ -129,7 +131,6 @@ export function Home() {
             </div>
           </div>
         </section>
-
         <section className="section_tours">
           <div className="u_center_text u_margin_buttom_8">
             <h2 className="heading_secondery">Most puplar tours</h2>
@@ -240,6 +241,67 @@ export function Home() {
           </div>
           <div className="u_center_text u_margin_top_huge">
             <button className="btn btn__green">dicover all tours</button>
+          </div>
+        </section>
+
+        <section className="section-stories">
+          <div className="u_center_text u_margin_buttom_8">
+            <h2 className="heading_secondery">we make people happy</h2>
+          </div>
+          <div className="row">
+            <div className="story">
+              {/* 
+                מה זה figure?
+                תגית figure ב-HTML משמשת להקיף תוכן גרפי (כגון תמונה, איור, דיאגרמה וכו'), כך שיהיה אפשר לתת לו כיתוב (בדרך כלל עם figcaption). 
+                זה עוזר גם למשמעות הסמנטית והנגשת הדף.
+              */}
+              <figure className="story__shape">
+                <img className="story__img" src={nature_composition_8} alt="" />
+                <figcaption className="story__caption"> woman </figcaption>
+              </figure>
+              <div className="story__text">
+                <h3 className="heading_tertiary">
+                  i had the best week ever with my family
+                </h3>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing
+                  elit.sfdfsddsfdfs Ullam, rem. Lorem ipsum dolor, sit amet
+                  consectetursfdsfdsfd adipisicing elit. Ullam, rem. Lorem ipsum
+                  dolor, sit ametfsdfsdsfdsfd consectetur adipisicing elit.
+                  Ullam, rem.dsfdfssfdsfd
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="story">
+              {/* 
+                מה זה figure?
+                תגית figure ב-HTML משמשת להקיף תוכן גרפי (כגון תמונה, איור, דיאגרמה וכו'), כך שיהיה אפשר לתת לו כיתוב (בדרך כלל עם figcaption). 
+                זה עוזר גם למשמעות הסמנטית והנגשת הדף.
+              */}
+              <figure className="story__shape">
+                <img className="story__img" src={nature_composition_9} alt="" />
+                <figcaption className="story__caption"> man </figcaption>
+              </figure>
+              <div className="story__text">
+                <h3 className="heading_tertiary">i had the best week</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Maxime delectus est doloribus eaque modi harum voluptatibus
+                  tempore placeat. Doloribus cum, sit officia perspiciatis
+                  beatae corrupti cupiditate, possimus eveniet soluta neque
+                  temporibus? Corporis assumenda id dolore vitae voluptatibus,
+                  animi incidunt inventore reprehenderit mollitia a eum
+                  repudiandae nam, nihil rem ducimus expedita.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="u_center_text">
+            <a href="#" className="btn-text btn-text__bigger ">
+              read all stories &rarr;
+            </a>
           </div>
         </section>
       </main>
